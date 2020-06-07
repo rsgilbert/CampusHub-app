@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "250749337984",
+    "firebase_url": "https://campushub-0.firebaseio.com",
+    "project_id": "campushub-0",
+    "storage_bucket": "campushub-0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:250749337984:android:352e461b525d37c825c165",
+        "android_client_info": {
+          "package_name": "com.lokech.campushub"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "250749337984-3ottee0pmt1mp5trlfd9cv0j4darlsic.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAceFRDFQLLwYsG0nS5VdQTNNlbXXwah0U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "250749337984-3ottee0pmt1mp5trlfd9cv0j4darlsic.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
