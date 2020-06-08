@@ -7,9 +7,6 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.google.firebase.ktx.Firebase
-import com.google.firebase.storage.StorageReference
-import com.google.firebase.storage.ktx.storage
 import com.lokech.campushub.R
 import com.lokech.campushub.databinding.ItemlistFragmentBinding
 
@@ -87,10 +84,10 @@ class ItemListFragment : Fragment() {
 //                Timber.e("Error getting docs : $e")
 //            }
 
-        val storage = Firebase.storage
-        val storageRef = storage.reference
-        var imageRef: StorageReference? = storageRef.child("images")
-        val shoeRef = storageRef.child("images/shoe.jpg")
+//        val storage = Firebase.storage
+//        val storageRef = storage.reference
+//        var imageRef: StorageReference? = storageRef.child("images")
+//        val shoeRef = storageRef.child("images/shoe.jpg")
 
 
         return binding.root

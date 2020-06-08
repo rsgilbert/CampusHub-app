@@ -19,6 +19,7 @@ import org.jetbrains.anko.support.v4.longToast
 class ItemDetailFragment : Fragment(), EditListener {
     val newItemViewModel: NewItemViewModel by viewModels({ requireParentFragment() })
 
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

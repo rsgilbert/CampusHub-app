@@ -2,6 +2,8 @@ package com.lokech.campushub.newitem
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.google.firebase.firestore.SetOptions
+import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.StorageReference
 import com.google.firebase.storage.ktx.storage
@@ -12,9 +14,17 @@ import java.util.*
 
 class NewItemViewModel : ViewModel() {
 
-    val itemLiveData = MutableLiveData<Item>().apply { value = Item() }
+    val itemLiveData = MutableLiveData<Item>().apply {
+        value = Item()
+    }
 
+    val db = Firebase.firestore
 
+    init {
+        itemLiveData.observeForever {
+            saveItem(it)
+        }
+    }
 }
 
 fun NewItemViewModel.saveName(name: String) {
@@ -53,4 +63,17 @@ fun NewItemViewModel.uploadPicture(stream: InputStream) {
             }
         }
 }
+
+fun NewItemViewModel.saveItem(item: Item) {
+    db.collection("items").document(item.id)
+        .set(item, SetOptions.merge())
+        .addOnSuccessListener {
+            Timber.i("saved item $item")
+        }
+        .addOnFailureListener { e ->
+            Timber.e("Error creating item $e")
+        }
+}
+
+
 
