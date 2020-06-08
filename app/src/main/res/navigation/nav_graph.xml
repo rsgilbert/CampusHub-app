@@ -3,11 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/itemsFragment">
+    app:startDestination="@id/itemListFragment">
 
     <fragment
-        android:id="@+id/itemsFragment"
-        android:name="com.lokech.campushub.itemlist.ItemsFragment"
-        android:label="ItemsFragment"
-        tools:layout="@layout/itemlist_fragment"/>
+        android:id="@+id/itemListFragment"
+        android:name="com.lokech.campushub.itemlist.ItemListFragment"
+        android:label="@string/actionbar_item_list_text"
+        tools:layout="@layout/itemlist_fragment">
+        <action
+            android:id="@+id/action_itemsFragment_to_newItemFragment"
+            app:destination="@id/newItemFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newItemFragment"
+        android:name="com.lokech.campushub.newitem.NewItemFragment"
+        android:label="@string/actionbar_new_item_text"
+        tools:layout="@layout/view_pager" />
 </navigation>

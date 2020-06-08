@@ -1,6 +1,7 @@
 package com.lokech.campushub
 
 import android.view.View
+import android.widget.ImageView
 import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
 import androidx.databinding.BindingAdapter
@@ -8,11 +9,29 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.lokech.campushub.data.Item
+import com.lokech.campushub.newitem.PictureAdapter
 import de.hdodenhof.circleimageview.CircleImageView
 
 
 @BindingAdapter("imageUrl")
 fun CircleImageView.bindImage(imgUrl: String?) {
+    imgUrl?.let {
+        val imgUri = imgUrl.toUri().buildUpon().scheme("https").build()
+//        val imgUri = imgUrl.toUri().buildUpon().build()
+        Glide.with(context)
+            .load(imgUri)
+            .apply(
+                RequestOptions()
+                    .placeholder(R.drawable.loading_animation)
+                    .error(R.drawable.ic_broken_image)
+            )
+            .into(this)
+    }
+}
+
+@BindingAdapter("imageUrl")
+fun ImageView.bindImage(imgUrl: String?) {
     imgUrl?.let {
         val imgUri = imgUrl.toUri().buildUpon().scheme("https").build()
 //        val imgUri = imgUrl.toUri().buildUpon().build()
@@ -47,10 +66,10 @@ fun RecyclerView.addDivider(shouldAdd: Boolean?) =
         }
     }
 
-//@BindingAdapter("journeysList")
-//fun RecyclerView.bindJourneysList(journeys: List<Journey>?) {
-//    journeys?.let {
-//        (adapter as JourneysAdapter).submitList(journeys)
-//    }
-//
-//}
+@BindingAdapter("item")
+fun RecyclerView.bindItem(item: Item?) {
+    item?.let {
+        (adapter as PictureAdapter).submitList(item.pictures)
+    }
+
+}

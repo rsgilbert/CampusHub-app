@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">CampusHub</string>
+    <string name="tab_picture_list_text">Pictures</string>
+    <string name="tab_item_detail_text">Details</string>
+    <string name="tab_item_picture_list_text">Pictures</string>
+    <string name="actionbar_item_list_text">Items</string>
+    <string name="actionbar_new_item_text">New</string>
+    <string name="drawer_item_list_title">Items</string>
+    <string name="name_title">Name</string>
+    <string name="price_title">Price</string>
+    <string name="description_title">Description</string>
+    <string name="item_price">%1$d UgShs</string>
+    <string name="edit_hint">Edit</string>
+    <string name="btn_save_title">SAVE</string>
 </resources>

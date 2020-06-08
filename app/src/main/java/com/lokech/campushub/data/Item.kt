@@ -1,10 +1,13 @@
 package com.lokech.campushub.data
 
-import androidx.room.Entity
-import androidx.room.PrimaryKey
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
 
-@Entity
+@Parcelize
 data class Item(
-    @PrimaryKey(autoGenerate = true)
-    val id: Int = 0
-)
+    val name: String = "",
+    val price: Long = 0L,
+    val description: String = "",
+    val displayPicture: String = "",
+    val pictures: List<String> = emptyList()
+) : Parcelable

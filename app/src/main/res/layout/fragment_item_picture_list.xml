@@ -6,6 +6,9 @@
 
     <data>
 
+        <variable
+            name="newItemViewModel"
+            type="com.lokech.campushub.newitem.NewItemViewModel" />
     </data>
 
     <RelativeLayout
@@ -14,23 +17,24 @@
 
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/itemList"
+            android:id="@+id/pictureList"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:clipToPadding="false"
             android:padding="6dp"
+            app:item="@{newItemViewModel.itemLiveData}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:addDivider="@{true}"
-            tools:listitem="@layout/items_item" />
+            tools:listitem="@layout/picture_item" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab_new_item"
+            android:id="@+id/fab_new_picture"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:layout_margin="@dimen/spacing_large"
             android:layout_marginBottom="@dimen/spacing_large"
-            android:src="@drawable/ic_add_white" />
+            android:src="@drawable/ic_add_white"
+            app:backgroundTint="#03A9F4" />
     </RelativeLayout>
 </layout>

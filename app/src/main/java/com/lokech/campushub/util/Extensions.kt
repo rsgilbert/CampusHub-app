@@ -4,8 +4,8 @@ import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
-import com.lokech.campushub.Repository
-import com.lokech.campushub.data.getDatabase
+
+//import com.lokech.campushub.data.getDatabase
 
 
 val Fragment.supportActionBar: ActionBar?
@@ -15,7 +15,7 @@ val Fragment.supportActionBar: ActionBar?
 fun Fragment.setSupportActionBar(toolbar: Toolbar) =
     (activity as AppCompatActivity).setSupportActionBar(toolbar)
 
-val Fragment.repository: Repository
-    get() = Repository(getDatabase(context!!).dao)
-
+//val Fragment.repository: Repository
+//    get() = Repository(getDatabase(context!!).dao)
+//
 

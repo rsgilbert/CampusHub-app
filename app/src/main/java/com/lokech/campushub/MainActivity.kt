@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(binding.toolbar)
         drawerLayout = binding.drawerLayout
         appBarConfiguration =
-            AppBarConfiguration(setOf(R.id.itemsFragment), drawerLayout)
+            AppBarConfiguration(setOf(R.id.itemListFragment), drawerLayout)
         navController = findNavController(R.id.myNavHostFragment)
 
 
