@@ -16,14 +16,15 @@
         android:gravity="center_vertical"
         android:orientation="vertical">
 
-        <de.hdodenhof.circleimageview.CircleImageView
+        <ImageView
             android:id="@+id/display_picture"
             android:layout_width="160dp"
             android:layout_height="160dp"
             android:layout_gravity="center"
             android:layout_margin="@dimen/spacing_normal"
-            android:src="@mipmap/ic_launcher"
-            app:imageUrl="@{newItemViewModel.itemLiveData.displayPicture}" />
+            app:addClickAnimation="@{true}"
+            app:imageUrl="@{newItemViewModel.newItemLiveData.displayPicture}"
+            tools:src="@mipmap/ic_launcher" />
 
 
         <RelativeLayout
@@ -57,7 +58,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/name_title"
                 android:layout_toEndOf="@+id/name_img"
-                android:text="@{newItemViewModel.itemLiveData.name}"
+                android:text="@{newItemViewModel.newItemLiveData.name}"
                 android:textColor="@android:color/black"
                 tools:text="Sony headsets" />
 
@@ -107,7 +108,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/price_title"
                 android:layout_toEndOf="@+id/price_img"
-                android:text="@{@string/item_price(newItemViewModel.itemLiveData.price)}"
+                android:text="@{@string/item_price(newItemViewModel.newItemLiveData.price)}"
                 android:textColor="@android:color/black"
                 tools:text="3000 UGX" />
 
@@ -158,7 +159,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/description_title"
                 android:layout_toEndOf="@+id/description_img"
-                android:text="@{newItemViewModel.itemLiveData.description}"
+                android:text="@{newItemViewModel.newItemLiveData.description}"
                 android:textColor="@android:color/black"
                 tools:text="Very nice article" />
 

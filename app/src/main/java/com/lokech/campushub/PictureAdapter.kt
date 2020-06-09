@@ -1,4 +1,4 @@
-package com.lokech.campushub.newitem
+package com.lokech.campushub
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -8,7 +8,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.lokech.campushub.databinding.PictureItemBinding
 
 class PictureAdapter(private val onClickListener: OnClickListener) :
-    ListAdapter<String, PictureAdapter.ViewHolder>(ItemDiffCallback()) {
+    ListAdapter<String, PictureAdapter.ViewHolder>(
+        ItemDiffCallback()
+    ) {
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val picture: String = getItem(position)
@@ -18,7 +20,8 @@ class PictureAdapter(private val onClickListener: OnClickListener) :
         holder.bind(picture)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ViewHolder.from(parent)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
+        ViewHolder.from(parent)
 
     class ViewHolder private constructor(private val binding: PictureItemBinding) :
         RecyclerView.ViewHolder(binding.root) {

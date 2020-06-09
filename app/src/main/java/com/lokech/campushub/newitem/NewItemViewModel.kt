@@ -5,63 +5,50 @@ import androidx.lifecycle.ViewModel
 import com.google.firebase.firestore.SetOptions
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import com.google.firebase.storage.StorageReference
-import com.google.firebase.storage.ktx.storage
 import com.lokech.campushub.data.Item
+import com.lokech.campushub.util.uploadPicture
 import timber.log.Timber
 import java.io.InputStream
-import java.util.*
 
 class NewItemViewModel : ViewModel() {
 
-    val itemLiveData = MutableLiveData<Item>().apply {
+    val newItemLiveData = MutableLiveData<Item>().apply {
         value = Item()
     }
 
     val db = Firebase.firestore
 
     init {
-        itemLiveData.observeForever {
+        newItemLiveData.observeForever {
             saveItem(it)
         }
     }
 }
 
 fun NewItemViewModel.saveName(name: String) {
-    itemLiveData.value = itemLiveData.value?.copy(name = name)
+    newItemLiveData.value = newItemLiveData.value?.copy(name = name)
 }
 
 fun NewItemViewModel.savePrice(price: Long) {
-    itemLiveData.value = itemLiveData.value?.copy(price = price)
+    newItemLiveData.value = newItemLiveData.value?.copy(price = price)
 }
 
 fun NewItemViewModel.saveDescription(description: String) {
-    itemLiveData.value = itemLiveData.value?.copy(description = description)
+    newItemLiveData.value = newItemLiveData.value?.copy(description = description)
 }
 
-fun NewItemViewModel.uploadPicture(stream: InputStream) {
-    val storage = Firebase.storage
-    val name = Date().time.toString()
-    val uploadRef: StorageReference = storage.reference.child("images").child(name)
-    uploadRef.putStream(stream)
-        .addOnProgressListener {
-            Timber.i("Made progress: ${it.bytesTransferred}")
+fun NewItemViewModel.saveDisplayPicture(stream: InputStream) {
+    uploadPicture(stream) { pictureUrl ->
+        newItemLiveData.value = newItemLiveData.value?.copy(displayPicture = pictureUrl)
+    }
+}
+
+fun NewItemViewModel.savePicture(stream: InputStream) {
+    uploadPicture(stream) { pictureUrl ->
+        newItemLiveData.value = newItemLiveData.value?.let {
+            it.copy(pictures = it.pictures + pictureUrl)
         }
-        .continueWithTask { task ->
-            if (!task.isSuccessful) {
-                task.exception?.let { throw it }
-            }
-            uploadRef.downloadUrl
-        }
-        .addOnCompleteListener { task ->
-            if (task.isSuccessful) {
-                val picture = task.result.toString()
-                itemLiveData.value = itemLiveData.value?.let {
-                    it.copy(pictures = it.pictures + picture)
-                }
-                Timber.i("Pictures are ${itemLiveData.value?.pictures}")
-            }
-        }
+    }
 }
 
 fun NewItemViewModel.saveItem(item: Item) {

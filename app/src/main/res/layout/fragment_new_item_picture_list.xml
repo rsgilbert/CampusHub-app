@@ -7,8 +7,8 @@
     <data>
 
         <variable
-            name="itemViewModel"
-            type="com.lokech.campushub.item.ItemViewModel" />
+            name="newItemViewModel"
+            type="com.lokech.campushub.newitem.NewItemViewModel" />
     </data>
 
     <RelativeLayout
@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:clipToPadding="false"
             android:padding="6dp"
-            app:item="@{itemViewModel.itemLiveData}"
+            app:item="@{newItemViewModel.newItemLiveData}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:listitem="@layout/picture_item" />
 

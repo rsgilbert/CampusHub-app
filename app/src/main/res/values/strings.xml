@@ -12,4 +12,5 @@
     <string name="item_price">%1$d UgShs</string>
     <string name="edit_hint">Edit</string>
     <string name="btn_save_title">SAVE</string>
+    <string name="actionbar_item_title">Item</string>
 </resources>

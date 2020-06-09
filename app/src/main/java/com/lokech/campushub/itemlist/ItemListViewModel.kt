@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.lokech.campushub.data.Item
+import com.lokech.campushub.util.asItem
 import timber.log.Timber
 
 class ItemListViewModel : ViewModel() {
@@ -36,13 +37,4 @@ fun ItemListViewModel.getItems() {
         }
 }
 
-fun Map<String, Any>.asItem(): Item {
-    return Item(
-        id = get("id") as String,
-        name = get("name") as String,
-        price = get("price") as Long,
-        description = get("description") as String,
-        pictures = get("pictures") as List<String>
-    )
-}
 

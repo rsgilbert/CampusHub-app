@@ -13,10 +13,22 @@
         <action
             android:id="@+id/action_itemsFragment_to_newItemFragment"
             app:destination="@id/newItemFragment" />
+        <action
+            android:id="@+id/action_itemListFragment_to_itemFragment"
+            app:destination="@id/itemFragment" />
     </fragment>
     <fragment
         android:id="@+id/newItemFragment"
         android:name="com.lokech.campushub.newitem.NewItemFragment"
         android:label="@string/actionbar_new_item_text"
         tools:layout="@layout/view_pager" />
+    <fragment
+        android:id="@+id/itemFragment"
+        android:name="com.lokech.campushub.item.ItemFragment"
+        android:label="@string/actionbar_item_title"
+        tools:layout="@layout/view_pager">
+        <argument
+            android:name="id"
+            app:argType="string" />
+    </fragment>
 </navigation>

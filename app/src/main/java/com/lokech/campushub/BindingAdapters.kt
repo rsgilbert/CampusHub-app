@@ -11,7 +11,6 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.lokech.campushub.data.Item
 import com.lokech.campushub.itemlist.ItemListAdapter
-import com.lokech.campushub.newitem.PictureAdapter
 import de.hdodenhof.circleimageview.CircleImageView
 
 
