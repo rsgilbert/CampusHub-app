@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.lokech.campushub.data.Item
+import com.lokech.campushub.itemlist.ItemListAdapter
 import com.lokech.campushub.newitem.PictureAdapter
 import de.hdodenhof.circleimageview.CircleImageView
 
@@ -71,5 +72,11 @@ fun RecyclerView.bindItem(item: Item?) {
     item?.let {
         (adapter as PictureAdapter).submitList(item.pictures)
     }
+}
 
+@BindingAdapter("itemList")
+fun RecyclerView.bindItem(itemList: List<Item>?) {
+    itemList?.let {
+        (adapter as ItemListAdapter).submitList(itemList)
+    }
 }

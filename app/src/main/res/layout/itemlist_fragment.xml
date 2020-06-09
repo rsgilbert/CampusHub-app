@@ -6,6 +6,9 @@
 
     <data>
 
+        <variable
+            name="itemListViewModel"
+            type="com.lokech.campushub.itemlist.ItemListViewModel" />
     </data>
 
     <RelativeLayout
@@ -21,6 +24,7 @@
             android:padding="6dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:addDivider="@{true}"
+            app:itemList="@{itemListViewModel.itemListLiveData}"
             tools:listitem="@layout/items_item" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
